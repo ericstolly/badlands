@@ -37,4 +37,10 @@ public class CharacterStatistics {
 	public class DefenseStatistics {
 		
 	}
+	
+	@ToString
+	@AllArgsConstructor
+	public static class CombatStatistics {
+		public final int honorableKills;
+	}
 }

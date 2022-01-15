@@ -9,6 +9,7 @@ import com.ericstolly.badlands.constant.Faction;
 import com.ericstolly.badlands.constant.Gender;
 import com.ericstolly.badlands.constant.Race;
 import com.ericstolly.badlands.object.character.CharacterStatistics.BaseStatistics;
+import com.ericstolly.badlands.object.character.CharacterStatistics.CombatStatistics;
 
 import kong.unirest.json.JSONObject;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class CharacterSheet {
 	private boolean dualSpecialization;
 	private int activeSpecialization;
 	private BaseStatistics baseStatistics;
+	private CombatStatistics combatStatistics;
 	
 	//TODO: Make a guild object?
 	private String guild;
@@ -62,5 +64,7 @@ public class CharacterSheet {
 				statisticsResponse.getInt("base_agility"),
 				statisticsResponse.getInt("base_stamina"),
 				statisticsResponse.getInt("base_spirit"));
+		
+		this.combatStatistics = new CombatStatistics(response.getInt("playerHonorKills"));
 	}
 }
