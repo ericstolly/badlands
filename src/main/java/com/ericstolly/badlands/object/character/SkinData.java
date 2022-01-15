@@ -1,3 +1,7 @@
+/**
+ * Badlands - Copyright (C) 2022 Eric Stolly
+ * https://www.ericstolly.com/
+ */
 package com.ericstolly.badlands.object.character;
 
 import lombok.AllArgsConstructor;
