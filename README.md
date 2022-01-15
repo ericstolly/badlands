@@ -30,7 +30,7 @@ There is currently only one request you can make, however this will be increased
 BadlandsClient#getCharacterSheet(String, Realm)#
 ```
 ### Example Usage
-A working example of the API can be found <a href="https://github.com/ericstolly/badlands">here</a>.
+A working example of the API can be found <a href="https://github.com/ericstolly/badlands/blob/master/src/main/java/com/ericstolly/badlands/example/BadlandsExample.java">here</a>.
 </br>
 
 <div align="center">
