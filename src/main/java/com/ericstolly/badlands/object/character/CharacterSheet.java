@@ -8,6 +8,7 @@ import com.ericstolly.badlands.constant.Clazz;
 import com.ericstolly.badlands.constant.Faction;
 import com.ericstolly.badlands.constant.Gender;
 import com.ericstolly.badlands.constant.Race;
+import com.ericstolly.badlands.object.character.CharacterStatistics.BaseStatistics;
 
 import kong.unirest.json.JSONObject;
 import lombok.Data;
@@ -28,6 +29,7 @@ public class CharacterSheet {
 	private int averageItemLevel;
 	private boolean dualSpecialization;
 	private int activeSpecialization;
+	private BaseStatistics baseStatistics;
 	
 	//TODO: Make a guild object?
 	private String guild;
@@ -35,6 +37,7 @@ public class CharacterSheet {
 	public CharacterSheet(final @NonNull JSONObject jsonObject) {
 		final JSONObject response = jsonObject.getJSONObject("response");
 		final JSONObject skinDataResponse = response.getJSONObject("skindata");
+		final JSONObject statisticsResponse = response.getJSONObject("characterStat");
 		
 		this.name = response.getString("name");
 		this.clazz = Clazz.getClazzFromId(response.getInt("class"));
@@ -53,5 +56,11 @@ public class CharacterSheet {
 				skinDataResponse.getInt("hairstyle"),
 				skinDataResponse.getInt("haircolor"),
 				skinDataResponse.getInt("facialhair"));
+		
+		this.baseStatistics = new BaseStatistics(
+				statisticsResponse.getInt("base_strength"),
+				statisticsResponse.getInt("base_agility"),
+				statisticsResponse.getInt("base_stamina"),
+				statisticsResponse.getInt("base_spirit"));
 	}
 }
