@@ -25,6 +25,7 @@ public class CharacterSheet {
 	private int level;
 	private Gender gender;
 	private SkinData skinData;
+	private int averageItemLevel;
 	
 	//TODO: Make a guild object?
 	private String guild;
@@ -40,6 +41,7 @@ public class CharacterSheet {
 		this.level = response.getInt("level");
 		this.gender = Gender.getGenderFromId(response.getInt("gender"));
 		this.guild = response.getString("guildName");
+		this.averageItemLevel = response.getInt("avgitemlevel");
 		
 		this.skinData = new SkinData(
 				skinDataResponse.getInt("skinstyle"),
